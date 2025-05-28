@@ -1,0 +1,2 @@
+Log Update,
+1.0 Web sudah dapat digunakan secara utuh menggunakan data Dummy

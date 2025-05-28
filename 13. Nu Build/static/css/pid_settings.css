@@ -1,0 +1,449 @@
+/* PID Controller Panel Styles */
+.pid-controller-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    background-color: #E4EAED;
+    margin-bottom: 20px;
+}
+
+.pid-controller-panel input:not(:disabled) {
+    background-color: white !important;
+    color: #274C77 !important;
+    border-color: #E4EAED !important;
+}
+
+/* Style untuk input yang aktif */
+.pid-controller-panel input:focus:not(:disabled) {
+    border-color: #274C77 !important;
+    box-shadow: 0 0 0 2px rgba(39, 76, 119, 0.2);
+}
+
+/* Protection Panel */
+.protection-panel {
+    background-color: #F8F8FB;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #9B4343;
+}
+
+.protection-panel.unlocked {
+    border-color: #439B57; /* Hijau saat unlocked */
+}
+
+
+.protection-switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.protection-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #274C77;
+}
+
+.switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.protection-switch {
+    display: none;
+}
+
+.switch-label {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #439B57;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.protection-switch:checked + .switch-label .switch-slider {
+    background-color: #9B4343
+}
+
+.protection-switch:checked + .switch-label .switch-slider:before {
+    transform: translateX(30px);
+}
+
+.protection-status {
+    font-size: 14px;
+    font-weight: bold;
+    color: #439B57;
+    min-width: 80px;
+}
+
+.protection-switch:checked ~ .protection-status {
+    color: #9B4343;
+}
+
+/* Setpoint Panel */
+.setpoint-panel {
+    background-color: #F8F8FB;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.setpoint-panel h3 {
+    color: #274C77;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.setpoint-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.setpoint-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+    align-items: center;
+}
+
+.setpoint-item label {
+    font-size: 14px;
+    color: #516F91;
+    font-weight: bold;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    border: 2px solid #E4EAED;
+    border-radius: 8px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.input-with-unit:focus-within {
+    border-color: #274C77;
+}
+
+.input-with-unit input {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 14px;
+    background-color: transparent;
+    outline: none;
+}
+
+.unit-label {
+    padding: 8px 12px;
+    background-color: #E4EAED;
+    color: #274C77;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 0 8px 8px 0;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* PID Parameters Panel */
+.pid-params-panel {
+    background-color: #F8F8FB;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pid-params-panel h3 {
+    color: #274C77;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.pid-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E4EAED;
+}
+
+.pid-tab {
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: #516F91;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.pid-tab:hover {
+    background-color: #E4EAED;
+    color: #274C77;
+}
+
+.pid-tab.active {
+    background-color: #274C77;
+    color: white;
+    border-bottom: 3px solid #439B57;
+}
+
+.pid-tab-content {
+    display: none;
+}
+
+.pid-tab-content.active {
+    display: block;
+}
+
+.pid-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+    align-items: center;
+}
+
+.pid-item label {
+    font-size: 14px;
+    color: #516F91;
+    font-weight: bold;
+}
+
+.pid-item input {
+    padding: 8px 12px;
+    border: 2px solid #E4EAED;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.pid-item input:focus {
+    outline: none;
+    border-color: #274C77;
+}
+
+/* PID Control Panel */
+.pid-control-panel {
+    background-color: #F8F8FB;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.pid-control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-save {
+    background-color: #439B57;
+    color: white;
+}
+
+.btn-save:hover:not(:disabled) {
+    background-color: #368a47;
+    transform: translateY(-2px);
+}
+
+.btn-reset {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-reset:hover:not(:disabled) {
+    background-color: #e67e22;
+    transform: translateY(-2px);
+}
+
+.btn-load {
+    background-color: #274C77;
+    color: white;
+}
+
+.btn-load:hover:not(:disabled) {
+    background-color: #1e3a5f;
+    transform: translateY(-2px);
+}
+
+.pid-status-info {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.status-label {
+    font-size: 12px;
+    color: #516F91;
+    font-weight: bold;
+}
+
+.status-value {
+    font-size: 16px;
+    color: #274C77;
+    font-weight: bold;
+}
+
+/* Input disabled state styling */
+input:disabled {
+    background-color: #f8f9fa !important;
+    color: #6c757d !important;
+    cursor: not-allowed;
+    border-color: #e9ecef !important;
+}
+
+.input-with-unit input:disabled {
+    background-color: #f8f9fa !important;
+    color: #6c757d !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .protection-switch-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .setpoint-row,
+    .pid-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .setpoint-item,
+    .pid-item {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .pid-tabs {
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .pid-tab {
+        border-radius: 8px;
+        margin-bottom: 2px;
+    }
+    
+    .pid-tab.active {
+        border-bottom: none;
+        border-left: 3px solid #439B57;
+    }
+    
+    .pid-control-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        min-width: 200px;
+    }
+    
+    .pid-status-info {
+        flex-direction: column;
+    }
+}
+
+/* Animation for smooth transitions */
+.pid-tab-content {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Status indicators */
+.status-value.enabled {
+    color: #439B57;
+}
+
+.status-value.disabled {
+    color: #9B4343;
+}

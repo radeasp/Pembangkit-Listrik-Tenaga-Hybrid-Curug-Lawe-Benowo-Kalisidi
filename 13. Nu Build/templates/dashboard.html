@@ -1,0 +1,327 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sistem Monitoring Pembangkit Listrik Hybrid{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h1 class="page-title">Dashboard</h1>
+
+    <div class="dashboard-row">
+        <!-- Picohydro Generator Box -->
+        <div class="info-block" onclick="window.location.href='/picohydro_generator'">
+            <div class="info-header">
+                <h2>Picohydro Generator</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Output</p>
+                    <p class="param-value" id="picohydro_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Output</p>
+                    <p class="param-value" id="picohydro_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Output</p>
+                    <p class="param-value" id="picohydro_power">0.00 W</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Putaran Generator</p>
+                    <p class="param-value" id="picohydro_rpm">0.00 RPM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solar Panel Generator Box -->
+        <div class="info-block" onclick="window.location.href='/solar_panel_generator'">
+            <div class="info-header">
+                <h2>Solar Panel Generator</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Output</p>
+                    <p class="param-value" id="solar_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Output</p>
+                    <p class="param-value" id="solar_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Output</p>
+                    <p class="param-value" id="solar_power">0.00 W</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Pencahayaan</p>
+                    <p class="param-value" id="lighting">0.00 lux</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-row">
+        <!-- Baterai Box -->
+        <div class="info-block" onclick="window.location.href='/baterai'">
+            <div class="info-header">
+                <h2>Baterai</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Baterai</p>
+                    <p class="param-value" id="battery_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Baterai</p>
+                    <p class="param-value" id="battery_net_current">0.0 A</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beban Box -->
+        <div class="info-block" onclick="window.location.href='/beban'">
+            <div class="info-header">
+                <h2>Beban</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Arus Beban</p>
+                    <p class="param-value" id="ac_output_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Beban</p>
+                    <p class="param-value" id="ac_output_power">0.00 W</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-row">
+        <!-- Dump Load Box -->
+        <div class="info-block" onclick="window.location.href='/dump_load'">
+            <div class="info-header">
+                <h2>Dump Load</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Arus Dump Load</p>
+                    <p class="param-value" id="dumpload_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Terbuang</p>
+                    <p class="param-value" id="dumpload_power">0.00 W</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kondisi Lingkungan Box -->
+        <div class="info-block" onclick="window.location.href='/environment'">
+            <div class="info-header">
+                <h2>Kondisi Lingkungan</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Temperatur</p>
+                    <p class="param-value" id="temperature">0.00 °C</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Kelembapan</p>
+                    <p class="param-value" id="humidity">0.00 %</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { initSensorModules, getModuleData, processData } from '/static/js/sensorData.js';
+    
+    // Daftar semua modul yang akan diinisialisasi
+    const MODULES = [
+        'picohydro_generator',
+        'solar_panel_generator', 
+        'baterai',
+        'beban',
+        'dump_load',
+        'environment'
+    ];
+    
+    // Fungsi untuk memformat nilai dengan 2 desimal
+    function formatValue(value, unit = '') {
+        if (typeof value !== 'number' || isNaN(value)) {
+            return '0.00' + (unit ? ' ' + unit : '');
+        }
+        return value.toFixed(2) + (unit ? ' ' + unit : '');
+    }
+    
+    // Fungsi untuk update display dari data yang sudah diproses
+    function updateDisplay(moduleData) {
+        // Update Picohydro Generator
+        if (moduleData.picohydro_generator) {
+            const data = moduleData.picohydro_generator;
+            const elements = {
+                picohydro_voltage: document.getElementById('picohydro_voltage'),
+                picohydro_current: document.getElementById('picohydro_current'),
+                picohydro_power: document.getElementById('picohydro_power'),
+                picohydro_rpm: document.getElementById('picohydro_rpm')
+            };
+            
+            if (elements.picohydro_voltage) elements.picohydro_voltage.textContent = formatValue(data.picohydro_voltage, 'V');
+            if (elements.picohydro_current) elements.picohydro_current.textContent = formatValue(data.picohydro_current, 'A');
+            if (elements.picohydro_power) elements.picohydro_power.textContent = formatValue(data.picohydro_power, 'W');
+            if (elements.picohydro_rpm) elements.picohydro_rpm.textContent = formatValue(data.picohydro_rpm, 'RPM');
+        }
+        
+        // Update Solar Panel Generator
+        if (moduleData.solar_panel_generator) {
+            const data = moduleData.solar_panel_generator;
+            const elements = {
+                solar_voltage: document.getElementById('solar_voltage'),
+                solar_current: document.getElementById('solar_current'),
+                solar_power: document.getElementById('solar_power'),
+                lighting: document.getElementById('lighting')
+            };
+            
+            if (elements.solar_voltage) elements.solar_voltage.textContent = formatValue(data.solar_voltage, 'V');
+            if (elements.solar_current) elements.solar_current.textContent = formatValue(data.solar_current, 'A');
+            if (elements.solar_power) elements.solar_power.textContent = formatValue(data.solar_power, 'W');
+            if (elements.lighting) elements.lighting.textContent = formatValue(data.lighting, 'lux');
+        }
+        
+        // Update Baterai
+        if (moduleData.baterai) {
+            const data = moduleData.baterai;
+            const elements = {
+                battery_voltage: document.getElementById('battery_voltage'),
+                battery_net_current: document.getElementById('battery_net_current')
+            };
+            
+            if (elements.battery_voltage) elements.battery_voltage.textContent = formatValue(data.battery_voltage, 'V');
+            if (elements.battery_net_current) elements.battery_net_current.textContent = formatValue(data.battery_net_current, 'A');
+        }
+        
+        // Update Beban - Fixed the element ID mismatch
+        if (moduleData.beban) {
+            const data = moduleData.beban;
+            const elements = {
+                ac_output_current: document.getElementById('ac_output_current'),
+                ac_output_power: document.getElementById('ac_output_power')
+            };
+            
+            if (elements.ac_output_current) elements.ac_output_current.textContent = formatValue(data.ac_output_current, 'A');
+            if (elements.ac_output_power) elements.ac_output_power.textContent = formatValue(data.ac_output_power, 'W');
+        }
+        
+        // Update Dump Load
+        if (moduleData.dump_load) {
+            const data = moduleData.dump_load;
+            const elements = {
+                dumpload_current: document.getElementById('dumpload_current'),
+                dumpload_power: document.getElementById('dumpload_power')
+            };
+            
+            if (elements.dumpload_current) elements.dumpload_current.textContent = formatValue(data.dumpload_current, 'A');
+            if (elements.dumpload_power) elements.dumpload_power.textContent = formatValue(data.dumpload_power, 'W');
+        }
+        
+        // Update Environment
+        if (moduleData.environment) {
+            const data = moduleData.environment;
+            const elements = {
+                temperature: document.getElementById('temperature'),
+                humidity: document.getElementById('humidity')
+            };
+            
+            if (elements.temperature) elements.temperature.textContent = formatValue(data.temperature, '°C');
+            if (elements.humidity) elements.humidity.textContent = formatValue(data.humidity, '%');
+        }
+    }
+    
+    // Fungsi untuk mengambil dan memproses data dari semua modul
+    async function fetchAllModuleData() {
+        const moduleData = {};
+        
+        try {
+            // Ambil data dari semua modul secara paralel
+            const dataPromises = MODULES.map(async (module) => {
+                try {
+                    const { latestData } = await getModuleData(module);
+                    // Proses data untuk mendapatkan derived parameters
+                    const processedData = processData(module, latestData);
+                    return { module, data: processedData };
+                } catch (error) {
+                    console.warn(`Error fetching data for module ${module}:`, error);
+                    return { module, data: {} };
+                }
+            });
+            
+            const results = await Promise.all(dataPromises);
+            
+            // Susun data per modul
+            results.forEach(({ module, data }) => {
+                moduleData[module] = data;
+            });
+            
+        } catch (error) {
+            console.error('Error fetching module data:', error);
+        }
+        
+        return moduleData;
+    }
+    
+    // Fungsi untuk update dashboard secara periodik
+    async function updateDashboard() {
+        try {
+            const moduleData = await fetchAllModuleData();
+            updateDisplay(moduleData);
+        } catch (error) {
+            console.error('Error updating dashboard:', error);
+        }
+    }
+       
+    // Inisialisasi sistem
+    async function initializeDashboard() {
+        try {
+            console.log('Initializing dashboard with sensor modules...');
+            
+            // Inisialisasi semua modul sensor
+            await initSensorModules(MODULES);
+            console.log('All sensor modules initialized successfully');
+            
+            // Update awal
+            await updateDashboard();
+            updateTime();
+            
+            // Set interval untuk update berkala
+            setInterval(updateDashboard, 1000); // Update setiap detik
+            setInterval(updateTime, 1000);      // Update waktu setiap detik
+            
+            console.log('Dashboard initialization complete');
+            
+        } catch (error) {
+            console.error('Error initializing dashboard:', error);
+            // Fallback ke update sederhana jika inisialisasi gagal
+            console.log('Falling back to simple updates...');
+            setInterval(updateDashboard, 2000); // Update lebih lambat sebagai fallback
+        }
+    }
+    
+    // Mulai inisialisasi ketika DOM siap
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    } else {
+        initializeDashboard();
+    }
+    
+    // Export functions untuk debugging (opsional)
+    window.dashboardDebug = {
+        updateDashboard,
+        fetchAllModuleData,
+        MODULES
+    };
+</script>
+{% endblock %}

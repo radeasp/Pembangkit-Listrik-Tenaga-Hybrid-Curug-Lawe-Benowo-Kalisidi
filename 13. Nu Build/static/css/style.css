@@ -1,0 +1,664 @@
+/* style.css */
+
+/* Variables */
+:root {
+    --white: #F8F8FB;
+    --dark-blue: #274C77;
+    --nav-bg-color: #E6EBF2;
+    --button-push-color: #6096BA;
+    --light-blue: #516F91;
+    --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --border-radius: 10px;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: var(--nav-bg-color);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    height: 70px;
+    padding: 0 20px 0 10px;
+}
+
+.logo-header {
+    height: 75px;
+    margin-right: 0px;
+}
+
+.logo-undip {
+    margin-left: 10px;
+}
+
+.logo-dte {
+    transform: scale(0.9); /* Membuat logo kedua sedikit lebih kecil */
+}
+
+.header-logos {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara dua logo */
+    margin-right: 25px; /* Jarak antara logo kanan dan location-left */
+}
+
+.location-left, .location-right {
+    color: var(--dark-blue);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.location-left {
+    margin-left: 120px; /* Jarak tambahan setelah logo */
+}
+
+.location-right {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.datetime {
+    color: var(--light-blue);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Navigation Styles */
+.navigation {
+    width: 300px;
+    background-color: var(--nav-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-icon {
+    transition: all 0.3s ease;
+    width: 28px;        
+    height: 28px;       
+    margin-right: 15px;
+    position: relative;
+    bottom: 2px;           
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    gap: 5px;
+}
+
+.navigation li {
+    margin: 2px 0;
+}
+
+.navigation li a {
+    display: flex;
+    color: var(--dark-blue);
+    background-color: var(--nav-bg-color);
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    text-align: left;
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.navigation li a:hover, .navigation li a.active {
+    color: var(--white);
+    background-color: var(--dark-blue);
+    font-weight: bold;
+}
+
+.navigation li a:active {
+    background-color: var(--button-push-color);
+}
+
+.navigation li a.active .nav-icon {
+    filter: brightness(0) invert(1); /* Putih untuk tema aktif */
+}
+
+.navigation li a:hover .nav-icon {
+    filter: brightness(0) invert(1); /* Putih untuk tema hover */
+}
+
+.team-info {
+    background-color: var(--white);
+    padding: 15px;
+    margin: 10px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.team-title, .department {
+    color: var(--dark-blue);
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.team-member {
+    color: var(--dark-blue);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 0;
+}
+
+.dashboard-row {
+    display: flex;
+    gap: 20px;
+}
+
+.info-block {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    flex: 1;
+    min-height: 180px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.info-block:hover {
+    transform: translateY(-5px);
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 5px;
+}
+
+.info-header h2 {
+    color: var(--dark-blue);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.arrow {
+    color: var(--dark-blue);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.params-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px 10px;
+}
+
+.param-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.param-name {
+    color: var(--light-blue);
+    font-size: 16px;
+}
+
+.param-value {
+    color: var(--dark-blue);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Detail Page Content */
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 0;
+}
+
+.dashboard-container {
+    padding: 0;                    /* nol padding, sama seperti .detail-page */
+    background-color: #E4EAED;     /* abu-abu muda */
+}
+
+.page-title {
+    color: var(--dark-blue);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;       /* rata-tengah */
+    margin: 0 0 5px 0;        /* 0 top, 0 right, 5px bottom, 0 left */
+    padding-top: 5px;         /* jarak atas 5px */
+}
+
+/* Charts and Data Display */
+.chart-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.chart-title {
+    color: var(--dark-blue);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+}
+
+.stat-title {
+    color: var(--light-blue);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    color: var(--dark-blue);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-active {
+    background-color: #4CAF50;
+}
+
+.status-inactive {
+    background-color: #F44336;
+}
+
+.status-warning {
+    background-color: #FFC107;
+}
+
+/* Form Controls */
+select, button, input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    color: var(--dark-blue);
+    font-size: 14px;
+}
+
+select:focus, button:focus, input:focus {
+    outline: none;
+    border-color: var(--button-push-color);
+}
+
+button {
+    background-color: var(--dark-blue);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-push-color);
+}
+
+/* Sticky Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 70px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+/* Sticky Sidebar */
+.navigation {
+    position: fixed;
+    top: 70px; /* di bawah header */
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    overflow-y: auto;
+    background-color: var(--nav-bg-color);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+}
+
+/* Konten utama bergeser menyesuaikan posisi header dan sidebar */
+.content {
+    margin-top: 70px;
+    margin-left: 300px;
+    height: calc(100vh - 70px);
+    overflow: hidden;
+}
+
+/* Main content scrollable */
+.main-content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Rapi dua kolom, turun ke bawah */
+.params-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr)); /* dua kolom fleksibel */
+    row-gap: 20px;     /* spasi vertikal antar parameter */
+    column-gap: 40px;  /* spasi horizontal antar kolom */
+    margin-top: 12px; /* atur jarak antara judul box dan parameter */
+    justify-content: center;
+    align-items: start;
+    padding: 20px;
+}
+
+.param-column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px; /* inilah yang mengatur JARAK antar name dan value */
+}
+
+@media (max-width: 992px) {
+    .dashboard-row {
+        flex-direction: column;
+    }
+    
+    .navigation {
+        width: 250px;
+    }
+}
+
+/* Tablet view - 768px to 541px */
+@media (max-width: 768px) and (min-width: 541px) {
+    .content {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 70px;
+    }
+    
+    .navigation {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        box-shadow: none;
+    }
+    
+    .navigation ul {
+        gap: 25px;
+        padding: 0 15px;
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .navigation li {
+        margin: 6px 12px;
+        white-space: nowrap;
+    }
+
+    .navigation li a {
+        padding: 15px;
+        border-radius: 6px !important;
+    }
+    
+    .team-info {
+        display: none;
+    }
+    
+    /* Keep normal header for tablet */
+    .header {
+        height: 70px;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 20px 0 10px;
+    }
+    
+    .location-left, .location-right {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin-bottom: 8px;
+        font-size: 16px;
+    }
+    
+    .datetime {
+        position: static;
+        align-items: center;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    .header {
+        height: 90px; /* Tinggi header diperbesar untuk menampung layout vertikal */
+        padding: 8px 15px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+    
+    .logo-header {
+        height: 50px; /* Logo diperkecil */
+        margin-right: 0;
+    }
+    
+    .logo-undip, .logo-dte {
+        transform: scale(0.7); /* Logo lebih kecil */
+    }
+    
+    .header-logos {
+        margin-right: 15px;
+        gap: 5px;
+    }
+    
+    .location-left {
+        margin-left: 0;
+        position: absolute;
+        left: 50%;
+        top: 15px;
+        transform: translateX(-50%);
+        font-size: 14px; /* Font diperkecil */
+    }
+    
+    .location-right {
+        position: absolute;
+        left: 50%;
+        top: 35px;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: 14px; /* Font diperkecil */
+        flex-grow: 0;
+    }
+    
+    .datetime {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        font-size: 14px; /* Font diperkecil */
+        align-items: flex-end;
+    }
+    
+    /* Adjust content margin for larger header */
+    .content {
+        margin-top: 90px;
+    }
+    
+    .navigation {
+        top: 90px;
+    }
+
+    .content {
+        flex-direction: column;
+        margin-left: 0;
+    }
+    
+    .navigation {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        box-shadow: none;
+    }
+    
+    .navigation ul {
+        gap: 15px;
+        padding: 0 10px;
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .navigation li {
+        margin: 4px 8px;
+        white-space: nowrap;
+    }
+
+    .navigation li a {
+        padding: 10px 12px;
+        border-radius: 6px !important;
+        font-size: 14px;
+    }
+    
+    .team-info {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .header {
+        height: 85px; /* Sedikit lebih kompak */
+        padding: 6px 10px;
+    }
+    
+    .logo-header {
+        height: 40px; /* Logo lebih kecil lagi */
+    }
+    
+    .logo-undip, .logo-dte {
+        transform: scale(0.6); /* Logo sangat kecil */
+    }
+    
+    .header-logos {
+        margin-right: 10px;
+        gap: 3px;
+    }
+    
+    .location-left {
+        top: 12px;
+        font-size: 12px; /* Font sangat kecil */
+    }
+    
+    .location-right {
+        top: 30px;
+        font-size: 12px; /* Font sangat kecil */
+    }
+    
+    .datetime {
+        right: 10px;
+        top: 12px;
+        font-size: 12px; /* Font sangat kecil */
+    }
+    
+    /* Content and navigation adjustments for smallest screen */
+    .content {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 85px;
+    }
+    
+    .navigation {
+        width: 100%;
+        position: relative;
+        top: 0;
+        height: auto;
+        box-shadow: none;
+    }
+    
+    .navigation ul {
+        gap: 10px;
+        padding: 0 8px;
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .navigation li {
+        margin: 3px 6px;
+        white-space: nowrap;
+    }
+
+    .navigation li a {
+        padding: 8px 10px;
+        border-radius: 6px !important;
+        font-size: 12px;
+    }
+    
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+    }
+    
+    .team-info {
+        display: none;
+    }
+}
