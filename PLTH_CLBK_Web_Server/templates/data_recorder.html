@@ -1,0 +1,387 @@
+{% extends "base.html" %}
+
+{% block title %}Database Sensor - Sistem Monitoring Pembangkit Listrik Hybrid{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/database.css') }}">
+
+<div class="database-page">
+    <h1 class="page-title">Database Sensor</h1>
+    
+    <!-- Database Statistics Card -->
+    <div class="info-block">
+        <div class="info-header">
+            <h2>Status Database</h2>
+        </div>
+        <div class="control-panel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Status Database:</span>
+                        <span id="recordingStatus" class="param-value"><span class="badge bg-secondary">Loading...</span></span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Interval Perekaman:</span>
+                        <span id="currentInterval" class="param-value">Loading...</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Sumber Data:</span>
+                        <span id="dataSource" class="param-value">Loading...</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Ukuran Database:</span>
+                        <span id="dbSize" class="param-value">Loading...</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Jumlah Rekaman:</span>
+                        <span id="recordCount" class="param-value">Loading...</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="fw-bold param-name">Pembersihan Terakhir:</span>
+                        <span id="lastCleanup" class="param-value">Belum pernah</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-12 text-end">
+                    <button class="btn action-button" id="db-refreshBtn">
+                        <i class="fas fa-sync-alt"></i> Refresh Status
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Database Control Card -->
+    <div class="info-block">
+        <div class="info-header">
+            <h2>Kontrol Database</h2>
+        </div>
+        <div class="control-panel">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="database-switch-container space-between">
+                        <label class="database-label">Aktifkan Database:</label>
+                        <div class="database-switch-wrapper">
+                            <input type="checkbox" id="recordingSwitch" class="database-switch">
+                            <label for="recordingSwitch" class="database-switch-label">
+                                <span class="database-switch-slider"></span>
+                            </label>
+                            <span class="database-status" id="databaseStatus">NONAKTIF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="control-group">
+                        <label class="param-name">Interval Perekaman</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="recordInterval" placeholder="60" min="1" max="3600">
+                            <span class="input-group-text">detik</span>
+                            <button class="btn action-button" type="button" id="setIntervalBtn">Set</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="control-group">
+                        <label class="param-name">Retensi Data</label>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="retentionDays" placeholder="30" min="1" max="365">
+                            <span class="input-group-text">hari</span>
+                            <button class="btn action-button" type="button" id="setRetentionBtn">Set</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Data Query Card -->
+    <div class="info-block">
+        <div class="info-header">
+            <h2>Query Database</h2>
+        </div>
+        <div class="control-panel">
+            <form id="queryForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="moduleSelect" class="param-name">Modul</label>
+                            <select class="form-select custom-select" id="moduleSelect">
+                                <option value="">Semua Module</option>
+                                <option value="picohydro_generator">Picohydro Generator</option>
+                                <option value="solar_panel_generator">Solar Panel Generator</option>
+                                <option value="baterai">Battery</option>
+                                <option value="beban">Beban</option>
+                                <option value="environment">Environment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="startDate" class="param-name">Tanggal Mulai</label>
+                            <input type="datetime-local" class="form-control custom-input" id="startDate">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="endDate" class="param-name">Tanggal Akhir</label>
+                            <input type="datetime-local" class="form-control custom-input" id="endDate">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="limitRecords" class="param-name">Batas Data</label>
+                            <input type="number" class="form-control custom-input" id="limitRecords" value="100" min="10" max="1000">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn action-button">Query Data</button>
+                    </div>
+                    <div class="col-md-8 text-end">
+                        <div class="dropdown d-inline-block">
+                            <button class="btn action-button-secondary dropdown-toggle" type="button" id="exportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Export
+                            </button>
+                            <ul class="dropdown-menu custom-dropdown" aria-labelledby="exportDropdown">
+                                <li><a class="dropdown-item" href="#" id="exportCsv">Export CSV</a></li>
+                                <li><a class="dropdown-item" href="#" id="exportJson">Export JSON</a></li>
+                                <li><a class="dropdown-item" href="#" id="exportXlsx">Export Excel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Results Card -->
+    <div class="info-block">
+        <div class="info-header">
+            <h2>Hasil Query</h2>
+            <div class="view-options" role="group">
+                <input type="radio" class="btn-check" name="viewOptions" id="tableView" autocomplete="off" checked>
+                <label class="btn btn-sm btn-outline-light" for="tableView">Tabel</label>
+                
+                <input type="radio" class="btn-check" name="viewOptions" id="chartView" autocomplete="off">
+                <label class="btn btn-sm btn-outline-light" for="chartView">Grafik</label>
+            </div>
+        </div>
+        <div class="control-panel">
+            <!-- Table View -->
+            <div id="tableViewContent">
+                <div class="table-responsive">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Modul</th>
+                                <th>Sumber</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <tr>
+                                <td colspan="4" class="text-center">Tidak ada data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Data pagination">
+                    <ul class="pagination justify-content-center" id="pagination"></ul>
+                </nav>
+            </div>
+            
+            <!-- Chart View -->
+            <div id="chartViewContent" class="d-none">
+                <div class="mb-3">
+                    <label for="chartVariable" class="param-name">Variabel</label>
+                    <select class="form-select custom-select" id="chartVariable"></select>
+                </div>
+                <div class="chart-container" style="position: relative; height:400px; width:100%">
+                    <canvas id="dataChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="info-block">
+        <div class="info-header">
+            <h2>Ringkasan Harian</h2>
+        </div>
+        <div class="control-panel">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="summaryDate" class="param-name">Tanggal</label>
+                    <input type="date" class="form-control custom-input" id="summaryDate">
+                </div>
+                <div class="col-md-3">
+                    <label for="summaryModule" class="param-name">Modul</label>
+                    <select class="form-select custom-select" id="summaryModule">
+                        <option value="">Semua Module</option>
+                        <option value="picohydro_generator">Picohydro Generator</option>
+                        <option value="solar_panel_generator">Solar Panel Generator</option>
+                        <option value="baterai">Battery</option>
+                        <option value="beban">Beban</option>
+                        <option value="environment">Environment</option>
+                    </select>
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <button class="btn action-button me-2" id="loadSummaryBtn">Muat Ringkasan</button>
+                    <button class="btn action-button-secondary" id="generateSummaryBtn">Buat Ringkasan</button>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="table custom-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Modul</th>
+                            <th>Nilai Min</th>
+                            <th>Nilai Max</th>
+                            <th>Nilai Rata-rata</th>
+                            <th>Jumlah Sampel</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summaryTableBody">
+                        <tr>
+                            <td colspan="6" class="text-center">Tidak ada data ringkasan</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Spinner Modal with emergency close button -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-body text-center py-4">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mb-0" id="loadingMessage">Processing request...</p>
+                
+                <!-- Emergency close button - always visible -->
+                <div id="emergencyClose" style="margin-top: 15px; z-index: 9999;">
+                    <p class="text-danger small">Jika terlalu lama</p>
+                    <button type="button" class="btn btn-sm btn-danger" id="forceCloseBtn" style="position: relative; z-index: 9999;">
+                        Tutup Paksa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/xlsx.full.min.js') }}"></script>
+
+
+<script>
+    // Global emergency functions for modal control
+    window.forceCloseModal = function() {
+        console.log('Force closing modal...');
+        
+        // Method 1: Try direct DOM approach first (most reliable)
+        try {
+            // Remove all modal backdrops
+            document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+            
+            // Hide all modals
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+            });
+            
+            // Clean up body
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+        } catch (e) {
+            console.error('Error manually cleaning up modal:', e);
+        }
+        
+        // Method 2: Try Bootstrap's way (as backup)
+        try {
+            const loadingModal = document.getElementById('loadingModal');
+            if (loadingModal) {
+                const bsModal = bootstrap.Modal.getInstance(loadingModal);
+                if (bsModal) bsModal.hide();
+            }
+        } catch (e) {
+            console.error('Error using Bootstrap to close:', e);
+        }
+    };
+    
+    // Set up emergency close button as soon as DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        const forceCloseBtn = document.getElementById('forceCloseBtn');
+        if (forceCloseBtn) {
+            // Add direct emergency close function to button (independent of window function)
+            forceCloseBtn.addEventListener('click', function(e) {
+                console.log('Force close button clicked directly');
+                
+                // Direct DOM manipulation - most reliable
+                try {
+                    document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+                    document.querySelectorAll('.modal').forEach(modal => {
+                        modal.classList.remove('show');
+                        modal.style.display = 'none';
+                    });
+                    document.body.classList.remove('modal-open');
+                    document.body.style.overflow = '';
+                    
+                    // Show toast to confirm action
+                    const toastContainer = document.createElement('div');
+                    toastContainer.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+                    toastContainer.innerHTML = `
+                        <div class="toast align-items-center text-white bg-warning border-0 show">
+                            <div class="d-flex">
+                                <div class="toast-body">Modal ditutup paksa</div>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(toastContainer);
+                    setTimeout(() => toastContainer.remove(), 3000);
+                } catch (err) {
+                    console.error('Error in direct force close:', err);
+                    alert('Force close attempted');
+                }
+                
+                // Also try the window function
+                try {
+                    window.forceCloseModal();
+                } catch (err) {
+                    console.error('Error calling window.forceCloseModal:', err);
+                }
+            });
+            
+            // Also attach the window function as backup
+            forceCloseBtn.addEventListener('click', window.forceCloseModal);
+        }
+        
+        // Set up safety timeout for modals
+        const loadingModal = document.getElementById('loadingModal');
+        if (loadingModal) {
+            loadingModal.addEventListener('shown.bs.modal', function() {
+                // Automatically close modal after 15 seconds
+                setTimeout(function() {
+                    console.log('Modal safety timeout triggered');
+                    window.forceCloseModal();
+                }, 15000);
+            });
+        }
+    });
+</script>
+
+<script type="module" src="{{ url_for('static', filename='js/database_manager.js') }}"></script>
+
+{% endblock %}

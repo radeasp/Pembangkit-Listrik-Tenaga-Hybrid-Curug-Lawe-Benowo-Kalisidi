@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistem Monitoring Pembangkit Listrik Hybrid{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+    <script>moment.locale('id');</script>
+    <script type="module" src="{{ url_for('static', filename='js/sensorData.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-logos">
+            <img src="{{ url_for('static', filename='assets/svg/logo_undip.svg') }}" alt="Logo" class="logo-header logo-undip">
+            <img src="{{ url_for('static', filename='assets/svg/logo_dte_undip.svg') }}" alt="Logo" class="logo-header logo-dte">
+        </div>
+        <div class="location-left">{{ location_left }}</div>
+        <div class="location-right">{{ location_right }}</div>
+        <div class="datetime">
+            <span id="current-time"></span>
+            <span id="current-date"></span>
+        </div>
+    </header>
+
+    <!-- Navigation Sidebar -->
+    <nav class="navigation">
+        <ul>
+            <li>
+                <a href="/" class="{{ 'active' if request.path == '/' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/dashboard.svg') }}" 
+                        data-active-src="{{ url_for('static', filename='assets/svg/dashboard-active.svg') }}"
+                        class="nav-icon">
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/picohydro_generator" class="{{ 'active' if request.path == '/picohydro_generator' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/picohydro.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/picohydro-active.svg') }}"
+                        class="nav-icon">
+                    Picohydro
+                </a>
+            </li>
+            <li>
+                <a href="/solar_panel_generator" class="{{ 'active' if request.path == '/solar_panel_generator' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/solar.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/solar-active.svg') }}"
+                        class="nav-icon">
+                    Solar Panel
+                </a>
+            </li>
+            <li>
+                <a href="/baterai" class="{{ 'active' if request.path == '/baterai' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/baterai.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/baterai-active.svg') }}"
+                        class="nav-icon">
+                    Baterai
+                </a>
+            </li>
+            <li>
+                <a href="/beban" class="{{ 'active' if request.path == '/beban' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/beban.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/beban-active.svg') }}"
+                        class="nav-icon">
+                    Beban
+                </a>
+            </li>
+            <li>
+                <a href="/environment" class="{{ 'active' if request.path == '/environment' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/environment.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/environment-active.svg') }}"
+                        class="nav-icon">
+                    Kondisi Lingkungan
+                </a>
+            </li>
+            <!-- Link navigasi ke /data_recorder untuk halaman database sensor yang terpisah dari settings -->
+            <li>
+                <a href="/settings" class="{{ 'active' if request.path == '/settings' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/settings.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/settings-active.svg') }}"
+                        class="nav-icon">
+                    Pengaturan Sistem
+                </a>
+            </li>
+            <li>
+                <a href="/data_recorder" class="{{ 'active' if request.path == '/data_recorder' else '' }}">
+                    <img src="{{ url_for('static', filename='assets/svg/database.svg') }}"
+                        data-active-src="{{ url_for('static', filename='assets/svg/database-active.svg') }}"
+                        class="nav-icon">
+                    Database Sensor
+                </a>
+            </li>
+        </ul>
+
+        <div class="team-info">
+            <div class="team-title">TIM TUGAS AKHIR MAHASISWA<br>S1 TEKNIK ELEKTRO<br>UNIVERSITAS DIPONEGORO 2025</div>
+            <div class="team-member">MEGAN ANUGRAH<br>NIRVANANDA SANTOSA<br>21060121130086</div>
+            <div class="team-member">RADEA SATRIO PAMBUDI<br>21060121140115</div>
+            <div class="team-member">SYAMSRIZA WIGUNA<br>21060121140137</div>
+            <div class="department">DEPARTEMEN TEKNIK ELEKTRO<br>UNIVERSITAS DIPONEGORO</div>
+        </div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="content">
+        <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <script>
+        // Handle icon changes for hover and active states
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.navigation a');
+        
+            navLinks.forEach(link => {
+                const icon = link.querySelector('.nav-icon');
+                if (icon) {
+                    const originalSrc = icon.src;
+                    const activeSrc = icon.getAttribute('data-active-src');
+                
+                    // Hover in - change to active icon
+                    link.addEventListener('mouseenter', function() {
+                        if (activeSrc && !this.classList.contains('active')) {
+                            icon.src = activeSrc;
+                        }
+                    });
+                
+                    // Hover out - restore original icon (unless active)
+                    link.addEventListener('mouseleave', function() {
+                        if (!this.classList.contains('active')) {
+                            icon.src = originalSrc;
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    
+    <script>
+        function updateTime() {
+            const now = moment();
+            const fullDate = now.format('dddd, D MMMM YYYY'); // e.g., Minggu, 25 Mei 2025
+            const time = now.format('HH:mm:ss');
+
+            document.getElementById('current-time').textContent = time;
+            document.getElementById('current-date').textContent = fullDate;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>

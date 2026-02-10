@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Sistem Monitoring Pembangkit Listrik Hybrid{% endblock %}
+
+{% block content %}
+<div class="dashboard-container dashboard-page">
+    <h1 class="page-title">Dashboard</h1>
+    <!-- ROW 1: Picohydro & Solar Panel (separate boxes, same row) -->
+    <div class="dashboard-row">
+        <!-- Picohydro Generator Box -->
+        <div class="info-block" onclick="window.location.href='/picohydro_generator'">
+            <div class="info-header">
+                <h2>Picohydro Generator</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Output</p>
+                    <p class="param-value" id="picohydro_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Output</p>
+                    <p class="param-value" id="picohydro_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Output</p>
+                    <p class="param-value" id="picohydro_power">0.00 W</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solar Panel Generator Box -->
+        <div class="info-block" onclick="window.location.href='/solar_panel_generator'">
+            <div class="info-header">
+                <h2>Solar Panel Generator</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Output</p>
+                    <p class="param-value" id="solar_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Output</p>
+                    <p class="param-value" id="solar_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Output</p>
+                    <p class="param-value" id="solar_power">0.00 W</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="dashboard-row">
+
+        <div class="info-block" onclick="window.location.href='/baterai'">
+            <div class="info-header">
+                <h2>Baterai</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Tegangan Baterai</p>
+                    <p class="param-value" id="battery_voltage">0.00 V</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Arus Baterai</p>
+                    <p class="param-value" id="battery_net_current">0.0 A</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beban Box -->
+        <div class="info-block" onclick="window.location.href='/beban'">
+            <div class="info-header">
+                <h2>Beban</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Arus Beban</p>
+                    <p class="param-value" id="dc_input_current">0.00 A</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Daya Beban</p>
+                    <p class="param-value" id="dc_input_power">0.00 W</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Environment Box -->        
+        <div class="info-block" onclick="window.location.href='/environment'">
+            <div class="info-header">
+                <h2>Kondisi Lingkungan</h2>
+                <span class="arrow">›</span>
+            </div>
+            <div class="params-container">
+                <div class="param-column">
+                    <p class="param-name">Temperatur</p>
+                    <p class="param-value" id="temperature">0.00 °C</p>
+                </div>
+                <div class="param-column">
+                    <p class="param-name">Kelembapan</p>
+                    <p class="param-value" id="humidity">0.00 %</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { initSensorModules, getModuleData, processData } from '/static/js/sensorData.js';
+
+    const MODULES = [
+        'picohydro_generator',
+        'solar_panel_generator',
+        'baterai',
+        'beban',
+        'environment'
+    ];
+
+    function formatValue(value, unit = '') {
+        if (typeof value !== 'number' || isNaN(value)) {
+            return '0.00' + (unit ? ' ' + unit : '');
+        }
+        return value.toFixed(2) + (unit ? ' ' + unit : '');
+    }
+
+    function setText(id, val, unit) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = formatValue(val, unit);
+    }
+
+    function updateDisplay(moduleData) {
+        // Picohydro
+        const pico = moduleData.picohydro_generator || {};
+        setText('picohydro_voltage', pico.picohydro_voltage ?? 0, 'V');
+        setText('picohydro_current', pico.picohydro_current ?? 0, 'A');
+        setText('picohydro_power', pico.picohydro_power ?? (pico.picohydro_voltage || 0) * (pico.picohydro_current || 0), 'W');
+
+        // Solar Panel
+        const solar = moduleData.solar_panel_generator || {};
+        setText('solar_voltage', solar.solar_voltage ?? 0, 'V');
+        setText('solar_current', solar.solar_current ?? 0, 'A');
+        setText('solar_power', solar.solar_power ?? (solar.solar_voltage || 0) * (solar.solar_current || 0), 'W');
+
+        // Baterai
+        const bat = moduleData.baterai || {};
+        setText('battery_voltage', bat.battery_voltage ?? 0, 'V');
+        setText('battery_net_current', bat.battery_net_current ?? 0, 'A');
+
+    // Beban
+    const beban = moduleData.beban || {};
+    // Tegangan beban DC langsung ambil dari tegangan baterai (referensi sama seperti arus DC beban)
+    const bebanVoltage = bat.battery_voltage ?? 0;
+    setText('beban_battery_voltage', bebanVoltage, 'V');
+    setText('dc_input_current', beban.dc_input_current ?? 0, 'A');
+    setText('dc_input_power', beban.dc_input_power ?? bebanVoltage * (beban.dc_input_current ?? 0), 'W');
+
+        // Environment
+        const env = moduleData.environment || {};
+        setText('temperature', env.temperature ?? 0, '°C');
+        setText('humidity', env.humidity ?? 0, '%');
+    }
+
+    async function fetchAllModuleData() {
+        const moduleData = {};
+        try {
+            const dataPromises = MODULES.map(async (module) => {
+                try {
+                    const { latestData } = await getModuleData(module);
+                    const processedData = processData(module, latestData);
+                    return { module, data: processedData };
+                } catch (error) {
+                    console.warn(`Error fetching data for module ${module}:`, error);
+                    return { module, data: {} };
+                }
+            });
+            const results = await Promise.all(dataPromises);
+            results.forEach(({ module, data }) => {
+                moduleData[module] = data;
+            });
+        } catch (error) {
+            console.error('Error fetching module data:', error);
+        }
+        return moduleData;
+    }
+
+    async function updateDashboard() {
+        try {
+            const moduleData = await fetchAllModuleData();
+            updateDisplay(moduleData);
+        } catch (error) {
+            console.error('Error updating dashboard:', error);
+        }
+    }
+
+    async function initializeDashboard() {
+        try {
+            console.log('Initializing dashboard with sensor modules...');
+            await initSensorModules(MODULES);
+            console.log('All sensor modules initialized successfully');
+            // Update awal langsung agar data muncul
+            await updateDashboard();
+            updateTime();
+            setInterval(updateDashboard, 1000);
+            setInterval(updateTime, 1000);
+            console.log('Dashboard initialization complete');
+        } catch (error) {
+            console.error('Error initializing dashboard:', error);
+            setInterval(updateDashboard, 2000);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    } else {
+        initializeDashboard();
+    }
+
+    window.dashboardDebug = {
+        updateDashboard,
+        fetchAllModuleData,
+        MODULES
+    };
+</script>
+{% endblock %}

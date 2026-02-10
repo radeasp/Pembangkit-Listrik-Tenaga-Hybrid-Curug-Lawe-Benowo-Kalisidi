@@ -1,0 +1,356 @@
+2025-08-14 20:51:27,912 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-14 20:51:27,913 - INFO - Started monitoring thread
+2025-08-14 20:52:05,191 - INFO - Stopped monitoring thread
+2025-08-14 20:52:05,197 - INFO - Disconnected from STM32
+2025-08-14 21:04:17,820 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-14 21:04:17,821 - INFO - Started monitoring thread
+2025-08-14 21:04:17,821 - INFO - STM32 controller connected and monitoring started
+2025-08-14 21:04:17,839 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-14 21:04:17,840 - INFO - ESP32 sensor monitoring started
+2025-08-14 21:04:17,840 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 21:04:17,855 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-14 21:04:48,866 - INFO - Sensor monitoring stopped
+2025-08-14 21:04:48,867 - INFO - Sensor monitoring stopped
+2025-08-14 21:04:48,867 - INFO - Disconnected from STM32
+2025-08-14 21:04:48,868 - INFO - ESP32 sensor monitoring stopped
+2025-08-14 21:04:48,873 - INFO - Disconnected from ESP32
+2025-08-20 19:54:06,917 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 19:54:06,928 - INFO - Started monitoring thread
+2025-08-20 19:54:06,928 - INFO - STM32 controller connected and monitoring started
+2025-08-20 19:54:06,950 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 19:54:06,951 - INFO - ESP32 sensor monitoring started
+2025-08-20 19:54:06,952 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 19:54:07,013 - ERROR - Error in sensor monitoring: 'picohydro_generator'
+2025-08-20 19:54:07,013 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:01:47,910 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:01:47,918 - INFO - Started monitoring thread
+2025-08-20 20:01:47,920 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:01:47,948 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:01:47,954 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:01:47,956 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:01:48,046 - ERROR - Error in sensor monitoring: 'picohydro_generator'
+2025-08-20 20:01:48,046 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:06:17,955 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:06:17,957 - INFO - Started monitoring thread
+2025-08-20 20:06:17,957 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:06:17,975 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:06:17,976 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:06:17,976 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:06:18,005 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:06:49,018 - INFO - Sensor monitoring stopped
+2025-08-20 20:06:49,020 - INFO - Sensor monitoring stopped
+2025-08-20 20:06:49,021 - INFO - Disconnected from STM32
+2025-08-20 20:06:49,022 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:06:49,025 - INFO - Disconnected from ESP32
+2025-08-20 20:16:25,385 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:16:25,386 - INFO - Started monitoring thread
+2025-08-20 20:16:25,386 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:16:25,403 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:16:25,404 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:16:25,405 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:16:25,419 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:16:56,431 - INFO - Sensor monitoring stopped
+2025-08-20 20:16:56,438 - INFO - Sensor monitoring stopped
+2025-08-20 20:16:56,441 - INFO - Disconnected from STM32
+2025-08-20 20:16:56,443 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:16:56,454 - INFO - Disconnected from ESP32
+2025-08-20 20:18:25,689 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:18:25,691 - INFO - Started monitoring thread
+2025-08-20 20:18:25,693 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:18:25,724 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:18:25,728 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:18:25,729 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:18:25,761 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:18:56,771 - INFO - Sensor monitoring stopped
+2025-08-20 20:18:56,771 - INFO - Sensor monitoring stopped
+2025-08-20 20:18:56,772 - INFO - Disconnected from STM32
+2025-08-20 20:18:56,772 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:18:56,778 - INFO - Disconnected from ESP32
+2025-08-20 20:24:00,137 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:24:00,138 - INFO - Started monitoring thread
+2025-08-20 20:24:00,139 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:24:00,157 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:24:00,158 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:24:00,158 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:24:00,172 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:24:31,182 - INFO - Sensor monitoring stopped
+2025-08-20 20:24:31,183 - INFO - Sensor monitoring stopped
+2025-08-20 20:24:31,184 - INFO - Disconnected from STM32
+2025-08-20 20:24:31,185 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:24:31,191 - INFO - Disconnected from ESP32
+2025-08-20 20:49:35,895 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:49:35,897 - INFO - Started monitoring thread
+2025-08-20 20:49:35,897 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:49:35,914 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:49:35,915 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:49:35,916 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:49:35,929 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:50:06,147 - INFO - Sensor monitoring stopped
+2025-08-20 20:50:06,148 - INFO - Sensor monitoring stopped
+2025-08-20 20:50:06,149 - INFO - Disconnected from STM32
+2025-08-20 20:50:06,149 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:50:06,155 - INFO - Disconnected from ESP32
+2025-08-20 20:50:28,786 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:50:28,787 - INFO - Started monitoring thread
+2025-08-20 20:50:28,788 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:50:28,806 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:50:28,807 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:50:28,808 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:50:28,821 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 20:50:59,035 - INFO - Sensor monitoring stopped
+2025-08-20 20:50:59,036 - INFO - Sensor monitoring stopped
+2025-08-20 20:50:59,036 - INFO - Disconnected from STM32
+2025-08-20 20:50:59,037 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 20:50:59,042 - INFO - Disconnected from ESP32
+2025-08-20 21:53:27,241 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:53:27,248 - INFO - Started monitoring thread
+2025-08-20 21:53:27,248 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:53:27,269 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:53:27,270 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:53:27,270 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:53:27,315 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 21:53:57,528 - INFO - Sensor monitoring stopped
+2025-08-20 21:53:57,529 - INFO - Sensor monitoring stopped
+2025-08-20 21:53:57,529 - INFO - Disconnected from STM32
+2025-08-20 21:53:57,529 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 21:53:57,535 - INFO - Disconnected from ESP32
+2025-08-20 21:58:17,528 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:58:17,529 - INFO - Started monitoring thread
+2025-08-20 21:58:17,530 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:58:17,547 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:58:17,549 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:58:17,549 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:58:17,563 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 21:58:47,823 - INFO - Sensor monitoring stopped
+2025-08-20 21:58:47,824 - INFO - Sensor monitoring stopped
+2025-08-20 21:58:47,824 - INFO - Disconnected from STM32
+2025-08-20 21:58:47,825 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 21:58:47,830 - INFO - Disconnected from ESP32
+2025-08-20 22:00:22,302 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:00:22,303 - INFO - Started monitoring thread
+2025-08-20 22:00:22,303 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:00:22,321 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:00:22,322 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:00:22,322 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:00:22,335 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:00:52,623 - INFO - Sensor monitoring stopped
+2025-08-20 22:00:52,624 - INFO - Sensor monitoring stopped
+2025-08-20 22:00:52,625 - INFO - Disconnected from STM32
+2025-08-20 22:00:52,625 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:00:52,630 - INFO - Disconnected from ESP32
+2025-08-20 22:01:18,926 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:01:18,927 - INFO - Started monitoring thread
+2025-08-20 22:01:18,927 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:01:18,943 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:01:18,944 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:01:18,945 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:01:18,957 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:01:49,228 - INFO - Sensor monitoring stopped
+2025-08-20 22:01:49,228 - INFO - Sensor monitoring stopped
+2025-08-20 22:01:49,228 - INFO - Disconnected from STM32
+2025-08-20 22:01:49,229 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:01:49,234 - INFO - Disconnected from ESP32
+2025-08-20 22:02:24,785 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:02:24,786 - INFO - Started monitoring thread
+2025-08-20 22:02:24,786 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:02:24,801 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:02:24,802 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:02:24,802 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:02:24,814 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:02:55,134 - INFO - Sensor monitoring stopped
+2025-08-20 22:02:55,134 - INFO - Sensor monitoring stopped
+2025-08-20 22:02:55,135 - INFO - Disconnected from STM32
+2025-08-20 22:02:55,135 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:02:55,142 - INFO - Disconnected from ESP32
+2025-08-20 22:03:15,086 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:03:15,087 - INFO - Started monitoring thread
+2025-08-20 22:03:15,087 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:03:15,104 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:03:15,105 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:03:15,105 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:03:15,118 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:03:45,414 - INFO - Sensor monitoring stopped
+2025-08-20 22:03:45,415 - INFO - Sensor monitoring stopped
+2025-08-20 22:03:45,415 - INFO - Disconnected from STM32
+2025-08-20 22:03:45,416 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:03:45,421 - INFO - Disconnected from ESP32
+2025-08-20 22:04:04,726 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:04:04,727 - INFO - Started monitoring thread
+2025-08-20 22:04:04,728 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:04:04,746 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:04:04,746 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:04:04,747 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:04:04,764 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:04:35,074 - INFO - Sensor monitoring stopped
+2025-08-20 22:04:35,075 - INFO - Sensor monitoring stopped
+2025-08-20 22:04:35,075 - INFO - Disconnected from STM32
+2025-08-20 22:04:35,076 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:04:35,082 - INFO - Disconnected from ESP32
+2025-08-20 22:04:42,565 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:04:42,566 - INFO - Started monitoring thread
+2025-08-20 22:04:42,567 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:04:42,581 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:04:42,582 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:04:42,582 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:04:42,594 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:05:12,892 - INFO - Sensor monitoring stopped
+2025-08-20 22:05:12,893 - INFO - Sensor monitoring stopped
+2025-08-20 22:05:12,893 - INFO - Disconnected from STM32
+2025-08-20 22:05:12,893 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:05:12,898 - INFO - Disconnected from ESP32
+2025-08-20 22:05:26,781 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:05:26,782 - INFO - Started monitoring thread
+2025-08-20 22:05:26,791 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:05:26,814 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:05:26,815 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:05:26,816 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:05:26,836 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:05:57,096 - INFO - Sensor monitoring stopped
+2025-08-20 22:05:57,097 - INFO - Sensor monitoring stopped
+2025-08-20 22:05:57,097 - INFO - Disconnected from STM32
+2025-08-20 22:05:57,097 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:05:57,102 - INFO - Disconnected from ESP32
+2025-08-20 22:06:18,270 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:06:18,271 - INFO - Started monitoring thread
+2025-08-20 22:06:18,272 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:06:18,289 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:06:18,290 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:06:18,291 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:06:18,304 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:06:48,618 - INFO - Sensor monitoring stopped
+2025-08-20 22:06:48,618 - INFO - Sensor monitoring stopped
+2025-08-20 22:06:48,619 - INFO - Disconnected from STM32
+2025-08-20 22:06:48,619 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:06:48,626 - INFO - Disconnected from ESP32
+2025-08-20 22:06:57,603 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:06:57,604 - INFO - Started monitoring thread
+2025-08-20 22:06:57,605 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:06:57,619 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:06:57,620 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:06:57,620 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:06:57,632 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:07:27,924 - INFO - Sensor monitoring stopped
+2025-08-20 22:07:27,924 - INFO - Sensor monitoring stopped
+2025-08-20 22:07:27,925 - INFO - Disconnected from STM32
+2025-08-20 22:07:27,925 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:07:27,931 - INFO - Disconnected from ESP32
+2025-08-20 22:07:35,263 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:07:35,264 - INFO - Started monitoring thread
+2025-08-20 22:07:35,264 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:07:35,278 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:07:35,279 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:07:35,280 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:07:35,292 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:08:05,555 - INFO - Sensor monitoring stopped
+2025-08-20 22:08:05,556 - INFO - Sensor monitoring stopped
+2025-08-20 22:08:05,556 - INFO - Disconnected from STM32
+2025-08-20 22:08:05,556 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:08:05,561 - INFO - Disconnected from ESP32
+2025-08-20 22:08:14,516 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:08:14,517 - INFO - Started monitoring thread
+2025-08-20 22:08:14,517 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:08:14,530 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:08:14,531 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:08:14,531 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:08:14,544 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:08:44,861 - INFO - Sensor monitoring stopped
+2025-08-20 22:08:44,862 - INFO - Sensor monitoring stopped
+2025-08-20 22:08:44,863 - INFO - Disconnected from STM32
+2025-08-20 22:08:44,863 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:08:44,869 - INFO - Disconnected from ESP32
+2025-08-20 22:08:57,721 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:08:57,722 - INFO - Started monitoring thread
+2025-08-20 22:08:57,723 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:08:57,740 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:08:57,741 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:08:57,741 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:08:57,755 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:09:28,073 - INFO - Sensor monitoring stopped
+2025-08-20 22:09:28,074 - INFO - Sensor monitoring stopped
+2025-08-20 22:09:28,075 - INFO - Disconnected from STM32
+2025-08-20 22:09:28,075 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:09:28,081 - INFO - Disconnected from ESP32
+2025-08-20 22:11:15,549 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:11:15,550 - INFO - Started monitoring thread
+2025-08-20 22:11:15,550 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:11:15,564 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:11:15,565 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:11:15,565 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:11:15,579 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:11:45,839 - INFO - Sensor monitoring stopped
+2025-08-20 22:11:45,840 - INFO - Sensor monitoring stopped
+2025-08-20 22:11:45,840 - INFO - Disconnected from STM32
+2025-08-20 22:11:45,841 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:11:45,847 - INFO - Disconnected from ESP32
+2025-08-20 22:12:20,294 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:12:20,295 - INFO - Started monitoring thread
+2025-08-20 22:12:20,295 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:12:20,311 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:12:20,312 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:12:20,313 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:12:20,325 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:12:50,630 - INFO - Sensor monitoring stopped
+2025-08-20 22:12:50,631 - INFO - Sensor monitoring stopped
+2025-08-20 22:12:50,631 - INFO - Disconnected from STM32
+2025-08-20 22:12:50,632 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:12:50,638 - INFO - Disconnected from ESP32
+2025-08-20 22:12:56,121 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:12:56,123 - INFO - Started monitoring thread
+2025-08-20 22:12:56,123 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:12:56,145 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:12:56,147 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:12:56,148 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:12:56,177 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:13:26,471 - INFO - Sensor monitoring stopped
+2025-08-20 22:13:26,472 - INFO - Sensor monitoring stopped
+2025-08-20 22:13:26,473 - INFO - Disconnected from STM32
+2025-08-20 22:13:26,473 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:13:26,479 - INFO - Disconnected from ESP32
+2025-08-20 22:13:33,701 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:13:33,702 - INFO - Started monitoring thread
+2025-08-20 22:13:33,703 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:13:33,720 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:13:33,721 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:13:33,722 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:13:33,736 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:14:03,951 - INFO - Sensor monitoring stopped
+2025-08-20 22:14:03,951 - INFO - Sensor monitoring stopped
+2025-08-20 22:14:03,951 - INFO - Disconnected from STM32
+2025-08-20 22:14:03,952 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:14:03,957 - INFO - Disconnected from ESP32
+2025-08-20 22:14:08,924 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:14:08,925 - INFO - Started monitoring thread
+2025-08-20 22:14:08,925 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:14:08,939 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:14:08,941 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:14:08,941 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:14:08,954 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:14:39,263 - INFO - Sensor monitoring stopped
+2025-08-20 22:14:39,263 - INFO - Sensor monitoring stopped
+2025-08-20 22:14:39,264 - INFO - Disconnected from STM32
+2025-08-20 22:14:39,264 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:14:39,270 - INFO - Disconnected from ESP32
+2025-08-20 22:14:50,780 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:14:50,780 - INFO - Started monitoring thread
+2025-08-20 22:14:50,781 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:14:50,797 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:14:50,798 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:14:50,799 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:14:50,817 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:15:21,052 - INFO - Sensor monitoring stopped
+2025-08-20 22:15:21,052 - INFO - Sensor monitoring stopped
+2025-08-20 22:15:21,053 - INFO - Disconnected from STM32
+2025-08-20 22:15:21,053 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:15:21,058 - INFO - Disconnected from ESP32
+2025-08-20 22:20:03,617 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 22:20:03,618 - INFO - Started monitoring thread
+2025-08-20 22:20:03,618 - INFO - STM32 controller connected and monitoring started
+2025-08-20 22:20:03,651 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 22:20:03,653 - INFO - ESP32 sensor monitoring started
+2025-08-20 22:20:03,653 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 22:20:03,672 - INFO - Sensor monitoring started with 1.0s interval
+2025-08-20 22:20:33,845 - INFO - Sensor monitoring stopped
+2025-08-20 22:20:33,845 - INFO - Sensor monitoring stopped
+2025-08-20 22:20:33,846 - INFO - Disconnected from STM32
+2025-08-20 22:20:33,846 - INFO - ESP32 sensor monitoring stopped
+2025-08-20 22:20:33,852 - INFO - Disconnected from ESP32
