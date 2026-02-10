@@ -1,0 +1,135 @@
+2025-08-14 18:01:56,990 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 18:01:56,990 - ERROR - Failed to connect to STM32
+2025-08-14 18:01:56,998 - ERROR - No ESP32 found on any port
+2025-08-14 18:01:56,999 - ERROR - Failed to connect to ESP32
+2025-08-14 18:03:40,225 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 18:03:40,260 - ERROR - Failed to connect to STM32
+2025-08-14 18:03:40,265 - INFO - Connected to ESP32 on COM4
+2025-08-14 18:03:40,265 - INFO - ESP32 sensor monitoring started
+2025-08-14 18:03:40,266 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 19:54:24,844 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 19:54:24,844 - ERROR - Failed to connect to STM32
+2025-08-14 19:54:24,848 - INFO - Connected to ESP32 on COM4
+2025-08-14 19:54:24,849 - INFO - ESP32 sensor monitoring started
+2025-08-14 19:54:24,849 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 19:54:24,849 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 19:54:24,849 - ERROR - Failed to connect to STM32
+2025-08-14 19:54:24,861 - INFO - Connected to ESP32 on COM12
+2025-08-14 19:54:24,862 - INFO - ESP32 sensor monitoring started
+2025-08-14 19:54:24,862 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 19:54:58,061 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 19:54:58,062 - ERROR - Failed to connect to STM32
+2025-08-14 19:54:58,066 - INFO - Connected to ESP32 on COM4
+2025-08-14 19:54:58,067 - INFO - ESP32 sensor monitoring started
+2025-08-14 19:54:58,067 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 19:54:58,067 - ERROR - Failed to connect to STM32: could not open port 'COM3': FileNotFoundError(2, 'The system cannot find the file specified.', None, 2)
+2025-08-14 19:54:58,068 - ERROR - Failed to connect to STM32
+2025-08-14 19:54:58,141 - INFO - Connected to ESP32 on COM12
+2025-08-14 19:54:58,142 - INFO - ESP32 sensor monitoring started
+2025-08-14 19:54:58,142 - INFO - ESP32 controller connected and monitoring started
+2025-08-14 20:35:17,412 - ERROR - Failed to connect to STM32: could not open port '/dev/ttyACM0': FileNotFoundError(2, 'The system cannot find the path specified.', None, 3)
+2025-08-14 20:35:17,413 - ERROR - Failed to connect to STM32
+2025-08-14 20:35:17,421 - ERROR - No ESP32 found on any port
+2025-08-14 20:35:17,421 - ERROR - Failed to connect to ESP32
+2025-08-15 00:03:29,579 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-15 00:03:29,589 - INFO - Started monitoring thread
+2025-08-15 00:03:29,590 - INFO - STM32 controller connected and monitoring started
+2025-08-15 00:03:29,614 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-15 00:03:29,617 - INFO - ESP32 sensor monitoring started
+2025-08-15 00:03:29,619 - INFO - ESP32 controller connected and monitoring started
+2025-08-15 00:38:08,440 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-15 00:38:08,442 - INFO - Started monitoring thread
+2025-08-15 00:38:08,442 - INFO - STM32 controller connected and monitoring started
+2025-08-15 00:38:08,471 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-15 00:38:08,474 - INFO - ESP32 sensor monitoring started
+2025-08-15 00:38:08,475 - INFO - ESP32 controller connected and monitoring started
+2025-08-15 01:15:10,033 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-15 01:15:10,040 - INFO - Started monitoring thread
+2025-08-15 01:15:10,043 - INFO - STM32 controller connected and monitoring started
+2025-08-15 01:15:10,078 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-15 01:15:10,086 - INFO - ESP32 sensor monitoring started
+2025-08-15 01:15:10,089 - INFO - ESP32 controller connected and monitoring started
+2025-08-15 01:36:54,611 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-15 01:36:54,614 - INFO - Started monitoring thread
+2025-08-15 01:36:54,615 - INFO - STM32 controller connected and monitoring started
+2025-08-15 01:36:54,636 - INFO - STM32 RAW DATA: {"picohydro_voltage":0,"picohydro_current":-0.954427,"dumpload_voltage":0,"dumpload_current":-25.4975,"picohydro_charging_current":-24.893,"battery_voltage":3.871252e-34,"battery_in_current":-0.351043,"battery_out_current":-0.89069,"setpoint":12,"kp":4.5,"ki":0.01,"kd":0.0017,"pwm_output":0,"timestamp":4107305}
+2025-08-15 01:36:54,644 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-15 01:36:54,648 - INFO - ESP32 sensor monitoring started
+2025-08-15 01:36:54,650 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:39:39,713 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:39:39,722 - INFO - Started monitoring thread
+2025-08-20 20:39:39,724 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:39:39,763 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:39:39,767 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:39:39,768 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:39:54,997 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:39:54,999 - INFO - Started monitoring thread
+2025-08-20 20:39:55,000 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:39:55,027 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:39:55,031 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:39:55,034 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:41:53,892 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:41:53,895 - INFO - Started monitoring thread
+2025-08-20 20:41:53,896 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:41:53,924 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:41:53,926 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:41:53,930 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 20:42:43,241 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:42:43,247 - INFO - Started monitoring thread
+2025-08-20 20:43:03,615 - INFO - Stopped monitoring thread
+2025-08-20 20:43:03,626 - INFO - Disconnected from STM32
+2025-08-20 20:44:03,889 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 20:44:03,893 - INFO - Started monitoring thread
+2025-08-20 20:44:03,894 - INFO - STM32 controller connected and monitoring started
+2025-08-20 20:44:03,920 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 20:44:03,927 - INFO - ESP32 sensor monitoring started
+2025-08-20 20:44:03,929 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:03:29,764 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:03:29,779 - INFO - Started monitoring thread
+2025-08-20 21:03:29,793 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:03:29,824 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:03:29,837 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:03:29,838 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:03:49,853 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:03:49,856 - INFO - Started monitoring thread
+2025-08-20 21:03:49,857 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:03:49,873 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:03:49,875 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:03:49,877 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:04:17,176 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:04:17,179 - INFO - Started monitoring thread
+2025-08-20 21:04:17,180 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:04:17,194 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:04:17,200 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:04:17,202 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:04:17,871 - WARNING - Received non-JSON data: }
+2025-08-20 21:04:18,413 - WARNING - Received non-JSON data: }
+2025-08-20 21:05:38,052 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:05:38,055 - INFO - Started monitoring thread
+2025-08-20 21:05:38,056 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:05:38,068 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:05:38,071 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:05:38,073 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:05:39,705 - WARNING - Received non-JSON data: }
+2025-08-20 21:05:40,253 - WARNING - Received non-JSON data: }
+2025-08-20 21:05:41,887 - WARNING - Received non-JSON data: }
+2025-08-20 21:08:53,868 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:08:53,870 - INFO - Started monitoring thread
+2025-08-20 21:08:53,872 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:08:53,888 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:08:53,894 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:08:53,897 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:08:54,291 - WARNING - Received non-JSON data: }
+2025-08-20 21:08:54,837 - WARNING - Received non-JSON data: {"picohydro_voltage":0.554445,"picohydro_current":-0.207455,"batt":-0.40"timestamp":1177137}
+2025-08-20 21:08:55,934 - ERROR - Serial error in monitoring loop (select): device reports readiness to read but returned no data (device disconnected or multiple access on port?)
+2025-08-20 21:09:02,939 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:09:03,575 - WARNING - Received non-JSON data: {"picohydro_voltage":0.554445,"picohydro_current":-{"picohydro_voltage":0.554445,"picohydro_current":-0.193937,"battery_in_current":-0.137252,"battery_out_current":-0.384877,"timestamp":1185874}
+2025-08-20 21:11:41,404 - INFO - Connected to STM32 on /dev/ttyACM0 at 115200 baud
+2025-08-20 21:11:41,416 - INFO - Started monitoring thread
+2025-08-20 21:11:41,426 - INFO - STM32 controller connected and monitoring started
+2025-08-20 21:11:41,464 - INFO - Connected to ESP32 on /dev/ttyUSB0
+2025-08-20 21:11:41,469 - INFO - ESP32 sensor monitoring started
+2025-08-20 21:11:41,476 - INFO - ESP32 controller connected and monitoring started
+2025-08-20 21:11:42,323 - WARNING - Received non-JSON data: {"picohydro_voltage":0.554445,"picohydro_current":-0.196407,"battery_in_current":-0.147409,"battery_out_current"6}
+2025-08-20 21:11:42,868 - WARNING - Incomplete STM32 JSON data, missing fields: ['picohydro_current']
+2025-08-20 21:11:43,412 - ERROR - Serial error in monitoring loop (select): device reports readiness to read but returned no data (device disconnected or multiple access on port?)
